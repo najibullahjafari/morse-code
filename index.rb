@@ -14,6 +14,16 @@ def decode_char(morse)
   decoded_char.upcase
 end
 
+def decode_word(morse)
+  morse_characters = morse.split(' ')
+  decoded_word = morse_characters.map { |s| decode_char(s) }.join('')
+  decoded_word
+end
+def decode_message(morse)
+  morse_words = morse.split('   ')
+  decoded_message = morse_words.map { |s| decode_word(s) }.join(' ')
+  decoded_message
+end
 
 # Example usages
 puts decode_char(".-") 
